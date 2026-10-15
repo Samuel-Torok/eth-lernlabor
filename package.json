@@ -1,0 +1,12 @@
+{
+  "name": "eth-lernlabor",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Interaktive Lernseite für Mechanik I, Analysis I und Lineare Algebra I (ETH, D-MAVT). Kein Build-Schritt, keine Abhängigkeiten.",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "test": "node --test \"tests/*.test.js\" \"src/math/*.test.js\"",
+    "check:pages": "node scripts/check-pages.mjs"
+  }
+}
