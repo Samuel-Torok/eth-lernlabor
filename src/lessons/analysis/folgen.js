@@ -50,11 +50,11 @@ export default function render(root) {
     <p><b>Der Beweis aus der Vorlesung, Schritt für Schritt</b> (S. I.5–I.6):</p>
     ${steps([
       [M`a_{n+1} - a_n = \frac{1}{(n+1)!} > 0`, 'Zwei aufeinanderfolgende Glieder unterscheiden sich nur um den letzten Summanden. Also ist die Folge strikt monoton wachsend.'],
-      [M`n! = n\cdot(n-1)\cdots 3\cdot 2\cdot 1 \;\ge\; 2^{n-1}`, 'Von den n Faktoren sind die n − 1 Faktoren n, n − 1, …, 2 jeweils ≥ 2. Der letzte Faktor ist 1.'],
+      [M`n! = n\cdot(n-1)\cdots 3\cdot 2\cdot 1 \;\ge\; 2^{n-1}`, `Von den ${M`n`} Faktoren sind die ${M`n - 1`} Faktoren ${M`n, n-1, \dots, 2`} jeweils ${M`\ge 2`}. Der letzte Faktor ist 1.`],
       [M`\frac{1}{n!} \le \frac{1}{2^{n-1}}`, 'Kehrwert: Ein grösserer Nenner ergibt einen kleineren Bruch.'],
-      [M`a_n \le 1 + 1 + \tfrac12 + \tfrac1{2^2} + \dots + \tfrac{1}{2^{n-1}} =: c_n`, 'Jeden Summanden 1/k! durch die grössere Zahl 1/2^(k−1) ersetzen.'],
-      [M`c_n = 1 + \left(2 - \tfrac{1}{2^{n-1}}\right) = 3 - \tfrac{1}{2^{n-1}} < 3`, 'Geometrische Summe: 1 + ½ + … + 1/2^(n−1) = 2 − 1/2^(n−1). Also gilt 0 ≤ a_n ≤ c_n < 3, die Folge ist beschränkt.'],
-      [M`\Rightarrow (a_n) \text{ konvergiert.}`, 'Monoton wachsend und beschränkt → Satz von oben.'],
+      [M`a_n \le 1 + 1 + \tfrac12 + \tfrac1{2^2} + \dots + \tfrac{1}{2^{n-1}} =: c_n`, `Jeden Summanden ${M`\frac1{k!}`} durch die grössere Zahl ${M`\frac{1}{2^{k-1}}`} ersetzen.`],
+      [M`c_n = 1 + \left(2 - \tfrac{1}{2^{n-1}}\right) = 3 - \tfrac{1}{2^{n-1}} < 3`, `Geometrische Summe: ${M`1 + \frac12 + \dots + \frac1{2^{n-1}} = 2 - \frac1{2^{n-1}}`}. Also gilt ${M`0\le a_n\le c_n < 3`}, die Folge ist beschränkt.`],
+      [M`\Rightarrow (a_n) \text{ konvergiert.}`, 'Monoton wachsend und beschränkt, also greift der Satz von oben.'],
     ])}
     ${figure('fig-e', `Die Glieder ${M`a_n`} (blau) wachsen und bleiben unter der Schranke ${M`c_n`} (bernstein), die selbst unter 3 bleibt. Sie nähern sich der Zahl ${M`e \approx 2{,}718`} (gestrichelt).`)}
     ${box('vorlesung', `<p>Was ist der Grenzwert? Es gilt ${M`\lim_{n\to\infty} a_n = e \approx 2{,}718`}, die Eulersche Zahl.</p>`, { src: 'S. I.6' })}
@@ -112,7 +112,7 @@ function epsFigure(host) {
     const p = plot(box, { width: 680, height: 300, xmin: 0, xmax: N + 1, ymin: ex.ymin, ymax: ex.ymax });
     el('rect', { class: 'band', x: p.X(0), y: p.Y(ex.a + eps), width: p.X(N + 1) - p.X(0), height: p.Y(ex.a - eps) - p.Y(ex.a + eps) }, p.svg);
     el('line', { x1: p.X(0), x2: p.X(N + 1), y1: p.Y(ex.a), y2: p.Y(ex.a), class: 's-x dashed', 'stroke-width': 1 }, p.svg);
-    axes(p, { xmin: 0, xmax: N + 1, ymin: ex.ymin, ymax: ex.ymax, xticks: [10, 20, 30, 40, 50, 60], yticks: ex === examples.sine ? [-1, 1] : ex.a === 1 ? [1, 2] : [0.5, 1], xlabel: 'n', ylabel: 'aₙ' });
+    axes(p, { xmin: 0, xmax: N + 1, ymin: ex.ymin, ymax: ex.ymax, xticks: [10, 20, 30, 40, 50, 60], yticks: ex === examples.sine ? [-1, 1] : ex.a === 1 ? [1, 2] : [0.5, 1], xlabel: 'n', ylabel: 'a_n' });
     const k = n0();
     if (k !== null && k <= N) {
       el('line', { x1: p.X(k), x2: p.X(k), y1: p.Y(ex.ymin), y2: p.Y(ex.ymax), class: 's-angle dashed', 'stroke-width': 1.5 }, p.svg);

@@ -49,6 +49,20 @@ export default function render(root) {
     ${steps(U03_STEPS.map((s) => [MD([s.tex]), s.why]))}
     <p><b>Auswertung nach dem Schema:</b> Rang ${M`r = 2`} (zwei Pivots: 3 und ${M`-2`}). Die Verträglichkeitsbedingungen lauten ${M`0 = 8`}: nicht erfüllt. Also hat das LGS <b>keine Lösung</b>. Die Frage nach freien Variablen stellt sich gar nicht mehr.</p>
   `)}
+
+  ${section('saetze', '5. Folgerungen aus der Zeilenstufenform: die Sätze der Vorlesung', `
+    ${box('vorlesung', `<p>Für die Zeilenstufenform gilt: ${M`r\ge0`} und ${M`r\le m`}. Ausserdem: ${M`r`} = Anzahl der Pivot-Variablen = <b>Rang</b>, also ${M`r\le n`}, und ${M`n - r`} = Anzahl freie Parameter. Falls ${M`c_{r+1} = \dots = c_m = 0`}, so ist das LGS lösbar («konsistent»); ist ein ${M`c_{r+1}, \dots, c_m`} ungleich Null, so ist das LGS nicht lösbar (Lösungsmenge leer).</p>
+      <p><b>Satz 1.1.</b> Ein LGS hat mind. 1 Lösung genau dann, wenn entweder (a) ${M`r = m`} (keine Nullzeilen) oder (b) ${M`r < m`} und ${M`c_{r+1} = \dots = c_m = 0`}.</p>
+      <p><b>Satz 1.2.</b> Falls ein LGS eine Lösung besitzt, so ist sie eindeutig, genau dann wenn ${M`n = r`}.</p>
+      <p><b>Def.</b> Ein LGS ${M`Ax = b`} heisst <b>homogen</b>, falls ${M`b = 0`}. Ein homogenes LGS (HLGS) ist immer konsistent, denn es besitzt die triviale Lösung ${M`x = 0`}. Wegen Satz 1.2: Falls bei einem HLGS ${M`n > m`}, so besitzt es nichttriviale Lösungen (${M`n > m \ge r \Rightarrow n - r > 0`}).</p>
+      <p><b>Korollar 1.3.</b> Ein HLGS hat genau dann nichttriviale Lösungen, falls ${M`n > r`}. Die Lösungsmenge besitzt dann ${M`n - r`} freie Parameter.</p>`, { src: 'Mitschrift Rickenbach, S. 8' })}
+    ${box('vorlesung', `<p><b>Korollar 1.4.</b> Ein LGS ${M`Ax = b`} ist genau dann für alle ${M`b`} lösbar, wenn ${M`r = m`}.</p>
+      <p><b>Korollar 1.5.</b> Ein LGS ${M`Ax = b`} ist genau dann nicht für alle ${M`b`} lösbar, wenn ${M`r < m`}. (Beweis «⇒»: Wäre ${M`r = m`}, hätte man keine Verträglichkeitsbedingungen. Kontraposition: Die Aussage «${M`A\Rightarrow B`}» ist äquivalent zu «${M`\neg B\Rightarrow\neg A`}».)</p>
+      <p><b>Korollar 1.6</b> (Spezialfall ${M`m = n`}). Sei ${M`m = n`}. Die Lösung des LGS ${M`Ax = b`} ist genau dann eindeutig, wenn das System für beliebiges ${M`b`} lösbar ist.</p>
+      <p><b>Satz 1.7.</b> Sei ${M`m = n`}. Das LGS ${M`Ax = b`} ist genau dann für beliebiges ${M`b`} lösbar, wenn das zugehörige HLGS ${M`Ax = 0`} nur die triviale Lösung hat.</p>`, { src: 'Mitschrift Rickenbach, S. 9' })}
+    ${box('merke', `<p>Alles hängt an drei Zahlen: ${M`m`} (Gleichungen), ${M`n`} (Unbekannte), ${M`r`} (Pivots). ${M`r = m`}: für jedes ${M`b`} lösbar. ${M`r = n`}: höchstens eine Lösung. ${M`r = m = n`}: immer genau eine Lösung.</p>`)}
+    ${box('vorlesung', `<p><b>Geometrie.</b> Ein ${M`2\times2`}-LGS ${M`a_{11}x_1 + a_{12}x_2 = b_1,\ a_{21}x_1 + a_{22}x_2 = b_2`} mit ${M`(a_{i1}, a_{i2})\ne(0,0)`} stellt zwei Geraden in der Ebene dar. Die Lösung ist die Schnittmenge der Geraden: (1) genau eine Lösung, (2) keine Lösung (parallel), (3) unendlich viele Lösungen (identisch). Analog in 3 Dimensionen: ${M`x\in E\iff n\cdot x = d`}, d.h. ein entsprechendes ${M`3\times3`}-LGS stellt 3 Ebenen im Raum dar, mit denselben 3 Fällen.</p>`, { src: 'Mitschrift Rickenbach, S. 6–7' })}
+  `)}
   `;
 
   linesFigure(root.querySelector('#fig-lines'));
@@ -97,7 +111,7 @@ function linesFigure(host) {
     fig.innerHTML = '';
     const p = plot(fig, { width: 420, height: 420, xmin: -4, xmax: 4, ymin: -4, ymax: 4 });
     p.svg.style.maxWidth = '420px';
-    axes(p, { xmin: -4, xmax: 4, ymin: -4, ymax: 4, xticks: [-3, -2, -1, 1, 2, 3], yticks: [-3, -2, -1, 1, 2, 3], xlabel: 'x₁', ylabel: 'x₂' });
+    axes(p, { xmin: -4, xmax: 4, ymin: -4, ymax: 4, xticks: [-3, -2, -1, 1, 2, 3], yticks: [-3, -2, -1, 1, 2, 3], xlabel: 'x_1', ylabel: 'x_2' });
     line(p, eq1, 's-x');
     line(p, eq2, 's-y');
     const A = [[eq1.a, eq1.b], [eq2.a, eq2.b]];

@@ -3,8 +3,8 @@
   --bg: #fbfaf7; --panel: #ffffff; --ink: #1d232b; --muted: #5d6673; --line: #e3e0d8;
   --accent: #1f3a5f;
   --c-analysis: #8a3ffc; --c-linalg: #0f7b6c; --c-mechanik: #c2410c;
-  /* Figuren: x blau, y bernstein, z grün, ρ türkis, r dunkel, Winkel violett, Punkte rot */
-  --x: #2563eb; --y: #d97706; --z: #16a34a; --rho: #0d9488; --dark: #1d232b; --angle: #7c3aed; --point: #dc2626;
+  /* Figuren: x blau, y bernstein, z grün, ρ türkis, r dunkel, Winkel/ω violett, Punkte rot, Geschwindigkeiten magenta */
+  --x: #2563eb; --y: #d97706; --z: #16a34a; --rho: #0d9488; --dark: #1d232b; --angle: #7c3aed; --point: #dc2626; --vel: #db2777;
   --band: rgba(37, 99, 235, 0.10);
   --b-vorlesung: #2563eb; --b-intuition: #0d9488; --b-achtung: #ea580c; --b-ergaenzung: #7c3aed; --b-merke: #1d232b;
   --font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
@@ -14,7 +14,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #14171c; --panel: #1b1f26; --ink: #e7e9ee; --muted: #9aa3b0; --line: #2c323c; --accent: #8fb3e8;
-    --x: #60a5fa; --y: #fbbf24; --z: #4ade80; --rho: #2dd4bf; --dark: #e7e9ee; --angle: #a78bfa; --point: #f87171;
+    --x: #60a5fa; --y: #fbbf24; --z: #4ade80; --rho: #2dd4bf; --dark: #e7e9ee; --angle: #a78bfa; --point: #f87171; --vel: #f472b6;
     --band: rgba(96, 165, 250, 0.14);
     --b-merke: #e7e9ee;
     color-scheme: dark;
@@ -110,7 +110,8 @@ svg.plot text { fill: var(--muted); }
 svg.plot text.math { font-family: KaTeX_Math, "Times New Roman", serif; font-style: italic; font-size: 16px; fill: var(--ink); }
 svg.plot .axes line { stroke: var(--muted); stroke-width: 1; }
 .s-x { stroke: var(--x); } .s-y { stroke: var(--y); } .s-z { stroke: var(--z); } .s-rho { stroke: var(--rho); }
-.s-dark { stroke: var(--dark); } .s-angle { stroke: var(--angle); } .s-point { stroke: var(--point); }
+.s-dark { stroke: var(--dark); } .s-angle { stroke: var(--angle); } .s-point { stroke: var(--point); } .s-vel { stroke: var(--vel); }
+.fill-vel { fill: var(--vel); } svg.plot text.t-vel { fill: var(--vel); } svg.plot text.t-dark { fill: var(--dark); }
 .fill-x { fill: var(--x); } .fill-y { fill: var(--y); } .fill-z { fill: var(--z); } .fill-rho { fill: var(--rho); }
 .fill-dark { fill: var(--dark); } .fill-angle { fill: var(--angle); } .fill-point { fill: var(--point); }
 svg.plot text.t-x { fill: var(--x); } svg.plot text.t-y { fill: var(--y); } svg.plot text.t-z { fill: var(--z); }
@@ -118,3 +119,13 @@ svg.plot text.t-rho { fill: var(--rho); } svg.plot text.t-angle { fill: var(--an
 .band { fill: var(--band); }
 .dashed { stroke-dasharray: 5 4; }
 .dot-in { fill: var(--x); } .dot-out { fill: var(--point); }
+svg.plot .grid line { stroke: var(--line); stroke-width: 1; }
+svg.plot { overflow: hidden; }
+table.ctable { border-collapse: collapse; font-size: 0.9em; margin: 8px 0; display: block; overflow-x: auto; }
+table.ctable th, table.ctable td { border: 1px solid var(--line); padding: 4px 8px; text-align: center; white-space: nowrap; }
+
+/* Lange Formeln auf schmalen Bildschirmen: im eigenen Block horizontal scrollen statt die Seite zu verbreitern */
+.step-math, .readout, .lsec > h2, .lsec > p, .box-body > p, .box-body li, figcaption { overflow-x: auto; overflow-y: hidden; position: relative; }
+.step-math { padding: 2px 0; }
+h1, h2 { hyphens: auto; overflow-wrap: break-word; }
+@media (max-width: 480px) { h1 { font-size: 1.7rem; } }

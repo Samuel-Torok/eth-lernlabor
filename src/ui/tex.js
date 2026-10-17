@@ -24,7 +24,7 @@ function render(src, display) {
     out = `<code class="tex-fallback">${escapeHtml(src)}</code>`;
   } else {
     try {
-      out = k.renderToString(src, { displayMode: display, throwOnError: true, macros: { ...MACROS }, strict: 'error' });
+      out = k.renderToString(src, { displayMode: display, throwOnError: true, macros: { ...MACROS }, strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }); // Umlaute in \text{} erlaubt
     } catch (e) {
       out = `<span class="tex-error" title="${escapeHtml(e.message)}">${escapeHtml(src)}</span>`;
     }

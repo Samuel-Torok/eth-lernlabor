@@ -17,11 +17,22 @@ Die PDFs liegen **nicht** im Repo (Urheberrecht), sondern beim Studenten unter `
 | I.20–I.21 | V5 | 1.5 Koordinatentransformationen (Verschieben, Strecken, Spiegeln) |
 | I.21–I.24 | V6, 30.09. | 1.6 Inverse Funktion; injektiv, surjektiv, bijektiv |
 
+`Analysis/2026hs-analysisI-kap2.pdf` (18 S.) und `2026hs-analysisI-kapA.pdf` (3 S.):
+
+| Seiten | Vorlesung | Inhalt |
+|---|---|---|
+| II.1–II.5 | 07.10./09.10. | II.1 Differentialquotient, differenzierbar ⇒ stetig, Rechenregeln, Kettenregel, Ableitung der Inversen |
+| II.6–II.11 | 09.10./12.10. | II.2 lineare Ersatzfunktion, Qualität der Approximation, Pendel, (1+x)^α, Differential, Fehlerrechnung (Dreieck, Kugel) |
+| II.11–II.16 | 12.10./14.10. | II.3 lokale Extremalstellen, Rolle, Mittelwertsatz, Monotonie, Bernoulli-L'Hôpital |
+| II.17–II.18 | 14.10. | II.4 globale Extremalstellen, Beispiel (x−1)∛x², Kreuzstab im Zylinder (unvollständig) |
+| A.1–A.3 | 16.10. | A Komplexe Zahlen: Multiplikation, Division, Geometrie von 1/z |
+
 Ältere Kapitel (2025hs-analysisI-kap1/2/3/8/A.pdf) als Zusatzmaterial.
 
 ## Lineare Algebra I
 
-- `Linear Algebra/Lineare Algebra I.pdf` — Übersicht der Mitschrift von F. Rickenbach (2022), 50 S.: LGS/Gauss (S. 1), Matrizen (S. 8 ff.), Inverse, LR-Zerlegung, Determinanten, Vektorräume, lineare Abbildungen. Teilweise handschriftlich (Text nur bruchstückhaft extrahierbar → Seiten ansehen).
+- `Linear Algebra/Lineare Algebra I.pdf` — Übersicht der Mitschrift von F. Rickenbach (2022), 50 S., handschriftlich (Text nicht extrahierbar → Seiten ansehen). Seitenzahlen der Mitschrift = PDF-Seite − 1. LGS/Gauss S. 1–5, Anwendungen S. 6–7, Folgen aus der Zeilenstufenform (Sätze 1.1–1.7) S. 8–9, Matrizen S. 10, Rechnen S. 11–12, Rechenregeln (Satz 2.1) S. 12, Notation/Satz 2.2 S. 13, Inverse S. 15 ff., LR S. 20, Determinanten S. 25 ff., Vektorräume S. 32 ff.
+- Serien 1–4 (HS26, Prof. Hungerbühler): Serie 3 = Lösbarkeit/Ebenenschnitt, Serie 4 = Matrixprodukt, Transponierte (Abgabe 23.10., nicht vorrechnen).
 - `Linear Algebra/U03_Lösbarkeit_Rang.pdf` — Übungsstunde 3 (N. Karpatchev, 2.10.2026): Verträglichkeitsbedingungen (S. 1–2), Sätze zu Lösbarkeit und Lösungsmenge (S. 2), Schema (S. 5), Übungen mit Lösung (S. 5–7).
 - `Linear Algebra/U04_Matrizen.pdf` — Übungsstunde 4: Matrizen.
 
