@@ -91,3 +91,48 @@ test('Zentralachse: dort ist v ∥ ω, in der Ebene sogar v = 0 (Momentanzentrum
   const Z2 = centralAxisPoint([0, 0, 0], [2, 1, 0], [0, 0, 0.5]);
   near(rigidVelocity([2, 1, 0], [0, 0, 0.5], [0, 0, 0], Z2), [0, 0, 0], 1e-12, 'Momentanzentrum');
 });
+
+test('Ebene Bewegung (S. 26): v_Az = ω_x PA_y − ω_y PA_x = 0 für alle PA ⇒ ω ∥ e_z', () => {
+  // Gegenprobe: ein ω mit x-Anteil erzeugt eine z-Geschwindigkeit
+  const v = rigidVelocity([1, 0, 0], [0.3, 0, 1], [0, 0, 0], [0, 2, 0]);
+  assert.ok(Math.abs(v[2]) > 0.1);
+  const v2 = rigidVelocity([1, 0, 0], [0, 0, 1], [0, 0, 0], [3, 2, 0]);
+  assert.equal(v2[2], 0);
+});
+
+test('Leiter mit Momentanzentrum (S. 27): Z = Schnitt der Normalen, ω = v_A/(L sin φ), v_B = v_A/tan φ', () => {
+  const L = 2, vA = 0.8;
+  for (const phi of [0.5, 1.0, 1.3]) {
+    const A = [0, 0, 0], B = [L * Math.cos(phi), L * Math.sin(phi), 0]; // A unten, B oben an der Wand
+    const Z = [A[0], B[1], 0]; // Normale zu v_A (senkrecht durch A) ∩ Normale zu v_B (waagrecht durch B)
+    const w = [0, 0, vA / (L * Math.sin(phi))];
+    const vAcalc = rigidVelocity([0, 0, 0], w, Z, A);
+    const vBcalc = rigidVelocity([0, 0, 0], w, Z, B);
+    assert.ok(Math.abs(Math.abs(vAcalc[0]) - vA) < 1e-12 && Math.abs(vAcalc[1]) < 1e-12, 'v_A waagrecht');
+    assert.ok(Math.abs(vBcalc[0]) < 1e-12 && Math.abs(Math.abs(vBcalc[1]) - vA / Math.tan(phi)) < 1e-12, 'v_B senkrecht');
+    assert.ok(Math.abs(dot(vAcalc, sub(B, A)) - dot(vBcalc, sub(B, A))) < 1e-12, 'SdpG');
+  }
+});
+
+test('Planetengetriebe (Fig. 3.21): Arm ω = (R1 ω1 + R2 ω2)/(R1 + R2)', async () => {
+  const { planetary } = await import('./vec.js');
+  const R1 = 1, R2 = 3, w1 = 2, w2 = -0.5;
+  const g = planetary(R1, R2, w1, w2);
+  assert.ok(Math.abs(g.R3 - 1) < 1e-12 && Math.abs(g.L - 2) < 1e-12, 'R3 = (R2−R1)/2, L = (R1+R2)/2');
+  // Planetenrad als starrer Körper: Geschwindigkeiten von P und Q passen zu einem ω3
+  const vP = [-R1 * w1, 0, 0], vQ = [-R2 * w2, 0, 0]; // Punkte auf der +y-Achse, Rotation um O (z)
+  const vO = rigidVelocity(vP, [0, 0, g.w3], [0, R1, 0], [0, g.L, 0]);
+  const vQcalc = rigidVelocity(vP, [0, 0, g.w3], [0, R1, 0], [0, R2, 0]);
+  assert.ok(Math.abs(vQcalc[0] - vQ[0]) < 1e-12, 'Rollen bei Q');
+  assert.ok(Math.abs(vO[0] - (-g.L * g.w)) < 1e-12, 'Arm');
+});
+
+test('Parallelogrammregel (S. 31): gegenüberliegende Stäbe drehen gleich schnell', () => {
+  // Gelenkviereck A(0,0) B(a,0) fest; Stab AD und BC drehen mit ω; Koppel DC verschiebt sich parallel
+  const a = 2, b = 1;
+  for (const t of [0.4, 1.1]) {
+    const D = (s) => [b * Math.cos(s), b * Math.sin(s), 0], C = (s) => [a + b * Math.cos(s), b * Math.sin(s), 0];
+    const dDC = sub(deriv(C, t), deriv(D, t));
+    assert.ok(norm(dDC) < 1e-8, 'DC verschiebt sich nur: ω_DC = 0 = ω_AB');
+  }
+});

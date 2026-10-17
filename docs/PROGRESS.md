@@ -43,10 +43,12 @@ Hinweis: Die Mitschrift ist von 2022. Die Reihenfolge der Vorlesung HS26 wurde a
 | Starrer Körper und SdpG | S. 12–13 | entwurf |
 | Translation und Rotation | S. 13–19 | entwurf |
 | Rollen, Kreiselung, allgemeine Bewegung, Kinemate | S. 20–25 | entwurf |
+| Ebene Bewegung, Momentanzentrum, Planetengetriebe | S. 26–28 | entwurf |
+| Fachwerk, Parallelogrammregel | S. 29–31 | entwurf (Beispiel S. 30 ungelöst in der Mitschrift) |
 
 ## Nächste Schritte
 
 1. Student liest die Entwürfe → Feedback in CLAUDE.md einarbeiten, einzelne Lektionen auf `review`/`fertig`.
 2. Jede Woche: neue Vorlesungsseiten (Analysis-Notizen werden laufend ergänzt) → neue Lektionen.
-3. Mechanik: «Ebene Bewegung» (S. 26 ff.) sobald behandelt. LinAlg: Inverse/Gauss-Jordan.
+3. Mechanik: Kapitel 4 Kräfte (S. 32 ff.) sobald behandelt. LinAlg: Inverse/Gauss-Jordan.
 4. Komplexe Zahlen: Grundlagen (Polarform, Euler) sobald Veranstaltung II stattgefunden hat.

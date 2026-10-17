@@ -44,3 +44,12 @@ export function rigidVelocity(vB, omega, rB, rM) {
 export function centralAxisPoint(rB, vB, omega) {
   return add(rB, scale(1 / dot(omega, omega), cross(omega, vB)));
 }
+
+/**
+ * Planetengetriebe (Mitschrift Fig. 3.21): Sonnenrad R1 (ω1), Hohlrad R2 (ω2), Planetenrad R3, Arm L.
+ * Ergänzung: aus Rollen in P und Q folgt ω_Arm = (R1ω1 + R2ω2)/(R1 + R2) und ω3 = (R2ω2 − R1ω1)/(R2 − R1).
+ */
+export function planetary(R1, R2, w1, w2) {
+  const R3 = (R2 - R1) / 2, L = (R1 + R2) / 2;
+  return { R3, L, w: (R1 * w1 + R2 * w2) / (R1 + R2), w3: (R2 * w2 - R1 * w1) / (R2 - R1) };
+}

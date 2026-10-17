@@ -17,4 +17,5 @@
 - Neue Mathe-Module mit Tests: `vec.js`, `analysis.js`, `complex.js`, `fraction.js` (exakter Gauss), `matrix.js`. 55 Tests grün.
 - Quellenprobleme R-003 bis R-005 erfasst.
 - Serie 4 LinAlg bewusst nicht gelöst (laufende Abgabe).
+- Nachtrag: Mechanik «Ebene Bewegung» (S. 26–28, inkl. Planetengetriebe als Ergänzung) und «Fachwerk» (S. 29–31). 59 Tests grün.
 
