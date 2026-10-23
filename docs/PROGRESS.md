@@ -44,7 +44,7 @@ Hinweis: Die Mitschrift ist von 2022. Die Reihenfolge der Vorlesung HS26 wurde a
 | Translation und Rotation | S. 13–19 | entwurf |
 | Rollen, Kreiselung, allgemeine Bewegung, Kinemate | S. 20–25 | entwurf |
 | Ebene Bewegung, Momentanzentrum, Planetengetriebe | S. 26–28 | entwurf |
-| Fachwerk, Parallelogrammregel | S. 29–31 | entwurf (Beispiel S. 30 ungelöst in der Mitschrift) |
+| Fachwerk: Beispiel in sechs Etappen, Parallelogrammregel | S. 29–31 | entwurf (Beispiel S. 30 jetzt gelöst, nach der Lösung aus der Vorlesung) |
 
 ## Nächste Schritte
 

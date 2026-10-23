@@ -98,7 +98,7 @@ export const SUBJECTS = [
           { id: 'rotation', title: 'Translation und Rotation', src: 'S. 13–19', status: 'entwurf', module: './lessons/mechanik/rotation.js' },
           { id: 'allgemein', title: 'Rollen, Kreiselung, allgemeine Bewegung', src: 'S. 20–25', status: 'entwurf', module: './lessons/mechanik/allgemein.js' },
           { id: 'eben', title: 'Ebene Bewegung, Momentanzentrum', src: 'S. 26–28', status: 'entwurf', module: './lessons/mechanik/eben.js' },
-          { id: 'fachwerk', title: 'Fachwerk, Parallelogrammregel', src: 'S. 29–31', status: 'entwurf', module: './lessons/mechanik/fachwerk.js' },
+          { id: 'fachwerk', title: 'Fachwerk: Beispiel in sechs Etappen, Parallelogrammregel', src: 'S. 29–31', status: 'entwurf', module: './lessons/mechanik/fachwerk.js' },
         ],
       },
       {

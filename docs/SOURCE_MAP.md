@@ -51,4 +51,6 @@ Inoffizielle Mitschrift der Vorlesung von Prof. E. Mazza (J. Kendall, D. Gao, Ve
 | 50–60 | 7 Verteilte Kräfte, 8 Ruhe und Gleichgewicht, Hauptsatz der Statik |
 | 61–91 | 9 Lager, 10 statisch unbestimmt, 11 Fachwerke, 12 Reibung, 13 Seilstatik |
 
+Lösung des Fachwerk-Beispiels S. 30: nur in der vom Studenten annotierten Fassung (handschriftlich, dort S. 28), als Screenshot am 23.10.2026 geliefert. Geometrie: A = (0,0), C = (L,0), D = (L,−L), E = (2L,−L), F = (2L,−2L), B = (3L,−2L), v_B = −v e_x.
+
 Ausserdem: `Mechanik I Mitschrift (Michał Skórnik, HS20).pdf` (98 S.), `Uebungsheft.pdf`, alte Basisprüfung `BP_2024S_A_Mech_1.pdf`.
